@@ -1,14 +1,17 @@
 //  modular approach
 import Connection from "./db/db.js";
-
+import express from 'express'
 import dotenv from 'dotenv'
 
 dotenv.config({
     path: "./env"
 })
+const app=express()
+
+
 Connection().
     then(() => {
-        app.on((err) => {
+        app.on("error" ,(err) => {
              console.log(`Error encounter in connection: ${err}`)
         }
         )
@@ -28,7 +31,7 @@ Connection().
 // first approach
 
 /*
-const app=express()
+
 
 
 //here we use iffi i.e imeadiate envocked function  

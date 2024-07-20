@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import { db_name } from "../constants.js";
 
 
-console.log(`${process.env.MongoDB_URI}`);
+
 const Connection = async () => {
     try {
         const connectInstance =await  mongoose.connect(`${process.env.MongoDB_URI}/ ${db_name}`)// mongoose returns a object hence we can store this in a const 
