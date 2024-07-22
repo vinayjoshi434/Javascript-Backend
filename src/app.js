@@ -25,4 +25,17 @@ cookie -parser works is to set and access the browser cookie through server
 app.use(cookieparser())
 
 
+
+// router import 
+import UserRouter from './routes/userrouter.js'
+
+//routes declaration
+app.use('/api/v1/users' ,UserRouter)    // here we take  router as a seperate in order to make code modular and clean i.e we use middleware.use() for using router 
+// whenever the /users request is entered the control is given to the Userrouter
+
+
+
+
+//URL
+
 export default app

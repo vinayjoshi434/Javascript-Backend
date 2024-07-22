@@ -1,22 +1,27 @@
 //  modular approach
 import Connection from "./db/db.js";
 import express from 'express'
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
+
+
+import app from "./app.js";
 
 dotenv.config({
     path: "./env"
 })
-const app=express()
+
 
 
 Connection().
     then(() => {
-        app.on("error" ,(err) => {
-             console.log(`Error encounter in connection: ${err}`)
+        app.on("error", (err) => {
+            console.log(`Error encounter in connection: ${err}`)
         }
         )
 
-
+        app.get("/", (req, res) => {
+            res.send("hello world")
+        })
         app.listen(process.env.PORT || 4000, () => {
             console.log(`server is running at port :  ${process.env.PORT}`);
         })
